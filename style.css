@@ -6,31 +6,330 @@ body {
   margin: 0;
 }
 body {
+  position: fixed;
+  padding: 20px;
+  margin: 30px;
+  background: white;
+}
+.container{
+  height: 100%;
+  width: 100%;
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right bottom, #873572, black);
+  flex-flow: row wrap;
+  gap: 2vw;
 }
-a {
-  display: inline-block;
-  color: lightgrey;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  white-space: nowrap;
-  padding: 12px;
-  border: 1px solid white;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.15s ease-in-out;
+.left-container{
+  position: relative;
+  height: 100vh;
+  width: 47vw;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4vh;
+
+}
+#images-container{
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2vw;
+  width: 47vw
+}
+.images{
+  position: relative;
+  cursor: pointer;
+  width: 10vw;
+}
+ #image-container{
+  position: relative;
+  width: 47vw;
+   height: 55%;
+
+ }
+  
+ .active{
+  border: 3px solid rgb(9, 9, 132);
+ }
+ .right-container{
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+   height: 100vh;
+   width: 45vw
+  
+ }
+ .line-break{
+  position: relative;
+  width: 90%;
+  height: 1px;
+  background-color: black;
+  opacity: 0.08;
+
+ }
+ p, h1, h2{
+  margin: 0;
+  padding-bottom: 5px;
+ }
+ .title > p{
+  opacity: 0.5;
+ }
+ .price{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+ }
+.price-item >h1{
+color: rgb(9, 9, 132);
+}
+.price-discount >h2{
+  padding-top: 5px;
+  color: red;
+  opacity: 0.5;
+}
+.price-item > p{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.color{
+  display: flex;
+  flex-flow: column  nowrap;
+  gap: 1.5vw;
+}
+.color > p{
+  opacity: 0.5;
+}
+.color-container{
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1.5vw;
+  margin-bottom: 1.5vw;
+}   
+ .colorPick{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+ }
+ .active-color{
+  margin: 2px;
+  width: 30px;
+  height: 30px;
+ }
+ .addcart{
+  display:  flex;
+  flex-flow: column wrap;
+  gap: 2vw;
+ }
+ .size{
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+ }
+ .size >p{
+  opacity: 0.5;
+ }
+ .size-container{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.5vw;
+ }
+ input[type="radio"],
+label {
+  vertical-align: top;
+  cursor: pointer;
+}
+label {
+  position: relative;
+  line-height: normal;
+  margin: 0;
+  padding: 0.3vw;
+  padding-right: 0.6vw;
+  font-size: 18px;
+  background-color: rgb(18, 17, 17,0.08);
+  border-radius: 9px;  
+}
+ 
+ input[type="radio"] {
+  position: relative;
+  appearance: none; /* Remove default appearance */
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgb(18, 17, 17,0.5);  
+  border-radius: 50%;  
+  outline: none;  
+  margin-right: 5px; 
+  margin: 5px;
+ 
 }
 
-a:hover {
-  background: rgba(0, 0, 0, 0.23);
-  color: white;
-  transform: scale(1.03);
-  text-decoration: none;
+input[type="radio"]::after{
+content: " ";
+position: absolute;
+display: none;
+width: 20px;
+height: 20px;
+left: -5.5px;
+top: -5.5px;
+border: 2px solid rgb(9, 9, 132);
+border-radius: 50%;
 }
-a:active {
-  transform: scale(0.98);
+/* Custom styling for checked radio buttons */
+input[type="radio"]:checked {
+  background-color: rgb(9, 9, 132); /* Background color when checked */
+  border-color: rgb(9, 9, 132); /* Border color when checked */
 }
+input[type="radio"]:checked::after{
+  display: block;
+}
+ 
+   .addCartButton{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2vw;
+   }
+    
+   
+   .count-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: rgb(9, 9, 132, 0.11);
+    margin: 1vw;
+    margin-left: 0;
+    position: relative;
+    padding: 0.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    border-radius: 20px;
+    text-align: center;
+   }
+   .sub{
+    color: rgb(9, 9, 132, 0.4);
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    cursor: pointer;
+   }
+   .count-container h3{
+    color: rgb(9, 9, 132);
+    padding: 0;
+    margin: 0;
+   }
+   .add{
+    color: rgb(9, 9, 132);
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+   }
+   .addcartContainer{
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgb(9, 9, 132);
+    margin: 1vw;
+    margin-left: 0;
+    padding: 0.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    border-radius: 20px;
+  
+   }
+   .addcartContainer, .count-container{
+    width: 10vw;
+   }
+   .addcartContainer button{
+    background-color: rgb(9, 9, 132);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+   }
+ .addcartContainer button > span{
+  padding-left: 4px;
+  
+  vertical-align: middle;
+ }
+ .addcartContainer button > img{
+  vertical-align: middle;
+ }
+ #addcartMessage{
+  display: none;
+  border-radius: 5px;
+    padding: 10px;
+padding-left: 20px;
+padding-right: 20px;
+background-color: rgb(220, 220, 119);
+ }
 
+
+ /* mobile view  midea query*/
+ @media only screen and (min-width: 150px) and (max-width: 767px){
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  .left-container{
+    height: 600px;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 4vh;
+  
+  }
+  #image-container{
+    width: 70%;
+     height: 70%;
+   }
+   #images-container{
+    position: relative;
+    gap: 2vw;
+    width:70%;
+    height:  500px;
+  }
+  .container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+     gap: 20px;
+  }
+  .images{
+    width: 25%;
+  }
+  .right-container{
+    position: relative;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+     gap: 10px;
+  }
+  .title,price,color,addcart,item-discription{
+    width: 90%;
+  }
+  .price{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .addcart,.addCartButton{
+  width: 90%;
+  }
+  .count-container, .addcartContainer{
+    width: 70%;
+    padding: 10px;
+  }
+  .addCartButton{
+    display: flex;
+    flex-flow: column wrap;
+
+  }
+ }
